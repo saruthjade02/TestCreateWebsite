@@ -8,7 +8,7 @@
     ],
     "strict": true,
     "noEmitOnError": true,
-    "outDir": "dist",
+    "outDir": "dir",
     "forceConsistentCasingInFileNames": true
   },
   "include": [
