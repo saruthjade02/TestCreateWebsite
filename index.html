@@ -5,14 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="dir/script.js" defer></script>
+    <title>META Browser</title>
+
 </head>
 
 <body>
     <header>
-        
+        <div class="content__container">
+            <img class="content__img" src="./META.png" alt="META Image">
+            <span class="content__title">META</span>
+        </div>
+        <nav class="settings">
+            <a href="" class="nav-btn">Settings</a>
+            <a href="" class="nav-btn">MENU</a>
+        </nav>
     </header>
-    
+
+    <main>
+        <section class="Profile">
+            <div class="ViewProfile">
+                <div class="ViewProfile__content">
+                    <img src="mark1.jpg" alt="M1">
+                    <img src="mark2.png" alt="M2">
+                    <img src="mark3.jpg" alt="M3">
+                </div>
+            </div>
+            <p></p>
+            <div class="ViewProfile__controls">
+                <button class="prev" type="button" aria-label="รูปก่อนหน้า">&lt;</button>
+                <button class="next" type="button" aria-label="รูปถัดไป">&gt;</button>
+            </div>
+
+        </section>
+
+        <Section class="Application">
+            <h1 class="section-heading">Application</h1>
+
+
+            <div class="SlideShow">
+                <div class="SlideShow__content">
+                    <a href="https://www.facebook.com/" target="_blank" rel="another tab">
+                        <img class="SlideShow__img" src="facebook.png" alt="Facebook">
+                    </a>
+
+                    <a href="https://www.instagram.com/" target="_blank" rel="another tab">
+                        <img class="SlideShow__img" src="Instagram.png" alt="Instagram">
+                    </a>
+
+                    <a href="https://www.messenger.com/" target="_blank" rel="another tab">
+                        <img class="SlideShow__img" src="Messenger.png" alt="Messenger">
+                    </a>
+
+                    <a href="https://www.threads.com/" target="_blank" rel="another tab">
+                        <img class="SlideShow__img" src="Threads.png" alt="Threads">
+                    </a>
+                </div>
+                <div class="SlideShow__controls">
+                    <button class="slide-prev" type="button" aria-label="รูปก่อนหน้า">&lt;</button>
+                    <span class="Dots">
+                        <span class="SlideShow__dot"></span>
+                        <span class="SlideShow__dot"></span>
+                        <span class="SlideShow__dot"></span>
+                        <span class="SlideShow__dot"></span>
+                    </span>
+                    <button class="slide-next" type="button" aria-label="รูปถัดไป">&gt;</button>
+                </div>
+            </div>
+        </Section>
+    </main>
 </body>
 
 </html>

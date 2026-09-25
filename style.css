@@ -1,1 +1,198 @@
-﻿
+﻿body {
+    margin: 0;
+    background-color: rgb(159, 171, 209);
+}
+
+.content__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.content__img {
+    width: 40px;
+    height: auto;
+    position: relative;
+    border: 2px solid rgb(47, 54, 129);
+}
+
+
+
+.nav-btn {
+    color: white;
+    background-color: #55607a;
+    border: 2px solid #515a6b;
+    border-radius: 6px;
+    padding: 2px 2px;
+    font-family: "Mali", sans-serif;
+    margin: 2px;
+    transition: transform 0.2s ease; background-color: 0.2s ease;
+    display: inline-block;
+}
+
+.nav-btn.hovered {
+  transform: scale(1.1);      
+  background-color: #343d50;  
+}
+
+.content__title {
+    font-family: "Mali", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    position: relative;
+}
+
+header {
+    display: flex;
+    background-color: #4772cf;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    position: sticky;
+    top: 0;
+
+}
+
+.settings {
+    margin-left: auto;
+    position: relative;
+}
+
+
+.content {
+    background-color: rgb(97, 65, 65);
+}
+
+
+.filters button {
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.filters button.active {
+    color: white;
+    background-color: #2563eb;
+}
+
+
+.ViewProfile__content img {
+    width: 80%;         
+    height: 350px;      
+    object-fit: cover;   
+    border-radius: 20px;  
+    margin-top: 10px;
+}
+
+.ViewProfile__controls {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 85%;
+}
+
+.ViewProfile__controls button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 0 3px;
+    font-weight: bold;
+    background-color: rgb(159, 171, 209);
+    color: white;
+    margin-top: -10px;
+    padding: 0px;
+    font-size: 45px;
+    cursor: pointer;
+    font-family: "Mali", sans-serif;
+}
+.ViewProfile__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-heading {
+    font-size: 34px;
+    font-weight: bold;
+    padding-left: 100px;
+    color: white;
+    background-color: rgb(159, 171, 209);
+    font-family: "Mali", sans-serif;
+    text-decoration-line: underline;
+    text-decoration-color: #55607a;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 8px;
+}
+
+.SlideShow {
+    width: 50%;
+    height: 245px;
+    background-color: rgb(255, 255, 255);
+    margin: 10px auto;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.SlideShow__content {
+    display: flex;
+    margin-top: 5px;
+    flex-direction: row;
+    transition: transform 0.4s ease;
+}
+.SlideShow__img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.SlideShow__content > a {
+    flex: 0 0 100%;
+
+}
+
+.SlideShow__controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding:0px;
+    gap: 10px;
+}
+
+.SlideShow__controls button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    margin: 0px;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255);
+    color: rgb(185, 119, 119);
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 40px;
+    line-height: 0.7;
+    cursor: pointer;
+    font-family: "Mali", sans-serif;
+}
+
+.Dots{
+    display: flex;
+    gap: 10px;
+    position: relative;
+    top: 13px;
+
+}
+
+.SlideShow__dot{ 
+    width: 10px;            
+    height: 10px;    
+    background-color: #ccc;   
+    border-radius: 50%;  
+}
+
+.SlideShow__dot.selected {
+  background-color: rgb(105, 105, 190);
+}
