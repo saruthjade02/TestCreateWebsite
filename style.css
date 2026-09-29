@@ -51,6 +51,7 @@ header {
     align-items: center;
     position: sticky;
     top: 0;
+    z-index: 1000;
 
 }
 
@@ -195,4 +196,62 @@ header {
 
 .SlideShow__dot.selected {
   background-color: rgb(105, 105, 190);
+}
+
+.section-stock{
+    font-size: 34px;
+    font-weight: bold;
+    padding-left: 100px;
+    color: white;
+    background-color: rgb(159, 171, 209);
+    font-family: "Mali", sans-serif;
+    text-decoration-line: underline;
+    text-decoration-color: #55607a;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 8px;    
+}
+
+.section-prod{
+    font-size: 34px;
+    font-weight: bold;
+    padding-left: 100px;
+    color: white;
+    background-color: rgb(159, 171, 209);
+    font-family: "Mali", sans-serif;
+    text-decoration-line: underline;
+    text-decoration-color: #55607a;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 8px;
+}
+
+#meta-chart {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px auto;
+    background: white;
+    border-radius: 12px;
+}
+
+
+.stock-ranges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+button[data-range] {
+  background-color: #4772cf;
+  color: white;
+  font-family: "Mali", sans-serif;
+}
+button[data-range]:hover {
+  transform: scale(1.1);
+}
+
+#stock-status {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-family: "Mali", sans-serif;
 }
