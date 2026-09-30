@@ -123,13 +123,33 @@ function drawChart() {
   ctx.lineWidth = 2;          // ความหนาเส้น
 
   ctx.beginPath();
-  ctx.moveTo(60, 20);                        // เริ่มด้านบนของแกน Y
-  ctx.lineTo(60, canvas.height - 40);        // ลากลงมา
-  ctx.lineTo(canvas.width - 20, canvas.height - 40); // ลากไปขวา
-  ctx.stroke();                             // วาดเส้นจริง
+  ctx.moveTo(60, 20);
+  ctx.lineTo(60, canvas.height - 40);
+  ctx.lineTo(canvas.width - 20, canvas.height - 40);
+  ctx.stroke();
 }
 
 drawChart();
+
+
+
+//ปุ่มกด
+const range_button = document.querySelectorAll<HTMLButtonElement>(".StockRange button");
+
+range_button.forEach((button) => {
+  button.addEventListener("click", () => {
+    const range = button.dataset.range;
+    if (
+      range === "1D" ||
+      range === "1W" ||
+      range === "1M" ||
+      range === "1Y"
+    ) {
+      loadStock(range);
+    }
+  });
+});
+
 
 // type StockRange = "1D" | "1W" | "1M" | "1Y";
 // type StockPoint = { datetime: string; close: number };

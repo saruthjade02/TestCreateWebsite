@@ -99,12 +99,43 @@ function drawChart() {
     ctx.strokeStyle = "#55607a"; // สีเส้น
     ctx.lineWidth = 2; // ความหนาเส้น
     ctx.beginPath();
-    ctx.moveTo(60, 20); // เริ่มด้านบนของแกน Y
-    ctx.lineTo(60, canvas.height - 40); // ลากลงมา
-    ctx.lineTo(canvas.width - 20, canvas.height - 40); // ลากไปขวา
-    ctx.stroke(); // วาดเส้นจริง
+    ctx.moveTo(60, 20);
+    ctx.lineTo(60, canvas.height - 40);
+    ctx.lineTo(canvas.width - 20, canvas.height - 40);
+    ctx.stroke();
 }
 drawChart();
+const buttons = document.querySelectorAll(".stock-ranges button");
+const stockStatus = document.querySelector("#stock-status");
+async function selectRange(range) {
+    if (stockStatus)
+        stockStatus.textContent = "กำลังโหลด...";
+    try {
+        await loadStock(range);
+        if (stockStatus) {
+            stockStatus.textContent = `META · ${range}`;
+        }
+    }
+    catch (error) {
+        if (stockStatus) {
+            stockStatus.textContent =
+                error instanceof Error ? error.message : "โหลดไม่สำเร็จ";
+        }
+    }
+}
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const range = button.dataset.range;
+        if (range === "1D" ||
+            range === "1W" ||
+            range === "1M" ||
+            range === "1Y") {
+            void selectRange(range);
+        }
+    });
+});
+// เปิดเว็บให้โหลดรายวันก่อน
+void selectRange("1D");
 // type StockRange = "1D" | "1W" | "1M" | "1Y";
 // type StockPoint = { datetime: string; close: number };
 // type StockResponse = {
