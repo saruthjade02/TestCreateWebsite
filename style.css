@@ -26,13 +26,14 @@
     padding: 2px 2px;
     font-family: "Mali", sans-serif;
     margin: 2px;
-    transition: transform 0.2s ease; background-color: 0.2s ease;
+    transition: transform 0.2s ease;
+    background-color: 0.2s ease;
     display: inline-block;
 }
 
 .nav-btn.hovered {
-  transform: scale(1.1);      
-  background-color: #343d50;  
+    transform: scale(1.1);
+    background-color: #343d50;
 }
 
 .content__title {
@@ -80,10 +81,10 @@ header {
 
 
 .ViewProfile__content img {
-    width: 80%;         
-    height: 350px;      
-    object-fit: cover;   
-    border-radius: 20px;  
+    width: 80%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 20px;
     margin-top: 10px;
 }
 
@@ -108,6 +109,7 @@ header {
     cursor: pointer;
     font-family: "Mali", sans-serif;
 }
+
 .ViewProfile__content {
     display: flex;
     flex-direction: column;
@@ -142,26 +144,27 @@ header {
     flex-direction: row;
     transition: transform 0.4s ease;
 }
+
 .SlideShow__img {
     width: 100%;
     height: 200px;
     object-fit: contain;
 }
 
-.SlideShow__content > a {
+.SlideShow__content>a {
     flex: 0 0 100%;
 
 }
 
-.SlideShow__controls{
+.SlideShow__controls {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding:0px;
+    padding: 0px;
     gap: 10px;
 }
 
-.SlideShow__controls button{
+.SlideShow__controls button {
     width: 30px;
     height: 30px;
     border: none;
@@ -179,7 +182,7 @@ header {
     font-family: "Mali", sans-serif;
 }
 
-.Dots{
+.Dots {
     display: flex;
     gap: 10px;
     position: relative;
@@ -187,18 +190,18 @@ header {
 
 }
 
-.SlideShow__dot{ 
-    width: 10px;            
-    height: 10px;    
-    background-color: #ccc;   
-    border-radius: 50%;  
+.SlideShow__dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
 }
 
 .SlideShow__dot.selected {
-  background-color: rgb(105, 105, 190);
+    background-color: rgb(105, 105, 190);
 }
 
-.section-stock{
+.section-stock {
     font-size: 34px;
     font-weight: bold;
     padding-left: 100px;
@@ -208,10 +211,10 @@ header {
     text-decoration-line: underline;
     text-decoration-color: #55607a;
     text-decoration-thickness: 5px;
-    text-underline-offset: 8px;    
+    text-underline-offset: 8px;
 }
 
-.section-prod{
+.section-prod {
     font-size: 34px;
     font-weight: bold;
     padding-left: 100px;
@@ -226,32 +229,46 @@ header {
 
 #meta-chart {
     display: block;
+    height: auto;
     width: 100%;
     max-width: 800px;
-    height: auto;
     margin: 20px auto;
     background: white;
     border-radius: 12px;
 }
-
 
 .stock-ranges {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
+
 button[data-range] {
-  background-color: #4772cf;
-  color: white;
-  font-family: "Mali", sans-serif;
+    background-color: #4772cf;
+    color: white;
+    font-family: "Mali", sans-serif;
 }
+
 button[data-range]:hover {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #stock-status {
-  display: flex;
-  justify-content: center;
-  color: white;
-  font-family: "Mali", sans-serif;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: "Mali", sans-serif;
+}
+
+
+#tooltip {
+    position: fixed;
+    background: #1e293b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Mali", sans-serif;
+    white-space: pre;
+    z-index: 2000;
 }
