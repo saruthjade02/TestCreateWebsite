@@ -277,3 +277,34 @@ button[data-range]:hover {
     white-space: pre;
     z-index: 2000;
 }
+ 
+.Production {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 0 40px;
+    font-size: 14px;
+    font-family: "Anuphan", sans-serif;    
+}
+
+.Production a{
+    text-decoration: none;
+    color: #183653;
+}
+
+.Production a img {
+    height: 200px;
+    background: white;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+.Production a img:hover {
+    transform: scale(1.03);
+}
+
+.prod {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
