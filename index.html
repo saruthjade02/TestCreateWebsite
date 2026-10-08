@@ -19,9 +19,38 @@
             <span class="content__title">META</span>
         </div>
         <nav class="settings">
-            <a href="" class="nav-btn">MENU</a>
-            <a href="" class="nav-btn">LOGIN</a>
+            <button class="nav-btn" id="menu-btn" type="button">MENU</button>
+            <button class="nav-btn" id="login-btn" type="button">LOGIN</button>
         </nav>
+
+        <dialog id="menu-dialog">
+            <div class="menu-header">
+                <span class="menu-title">MENU</span>
+                <button id="close-menu-btn" type="button">✖</button>
+            </div>
+            <nav class="menu-list">
+                <a href="#Profile">Profile</a>
+                <a href="#Application">Application</a>
+                <a href="#Stock">Stock</a>
+                <a href="#Production">Production</a>
+            </nav>
+        </dialog>
+
+        <dialog id="login-modal">
+            <button id="close-login" type="button">✖</button>
+            <h2>เข้าสู่ระบบ</h2>
+
+            <form id="login-form">
+                <label for="email">อีเมล</label>
+                <input id="email" type="email" autocomplete="username" required>
+
+                <label for="password">รหัสผ่าน</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+                <button type="submit">เข้าสู่ระบบ</button>
+            </form>
+        </dialog>
+
+
     </header>
 
     <main>

@@ -252,3 +252,32 @@ range_button.forEach((button) => {
 loadStock("1D");
 
 
+const loginBtn = document.querySelector<HTMLButtonElement>("#login-btn");
+const loginModal = document.querySelector<HTMLDialogElement>("#login-modal");
+const closeModalBtn = document.querySelector<HTMLButtonElement>("#close-login");
+
+loginBtn?.addEventListener("click", () => {
+   loginModal?.showModal();
+  }
+);
+
+closeModalBtn?.addEventListener("click", () => {
+  loginModal?.close();
+});
+
+const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
+const menuDialog = document.querySelector<HTMLDialogElement>("#menu-dialog");
+const closeMenuBtn = document.querySelector<HTMLButtonElement>("#close-menu-btn");
+
+menuBtn?.addEventListener("click", () => {
+  menuDialog?.showModal();
+});
+
+closeMenuBtn?.addEventListener("click", () => {
+  menuDialog?.close();
+});
+
+
+closeModalBtn?.addEventListener("click", () => {
+  loginModal?.close();
+});
