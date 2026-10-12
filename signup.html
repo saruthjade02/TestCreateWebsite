@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="signup-page">
+        <section class="signup-card">
+            <h1>Create an account</h1>
+
+            <form id="signup-form">
+                <label for="signup-name">Name</label>
+                <input id="signup-name" name="name" type="text"
+                       autocomplete="name" required>
+
+                <label for="signup-email">Email</label>
+                <input id="signup-email" name="email" type="email"
+                       autocomplete="email" required>
+
+                <label for="signup-password">Password</label>
+                <input id="signup-password" name="password" type="password"
+                       autocomplete="new-password" minlength="8" required>
+
+                <label for="confirm-password">Confirm password</label>
+                <input id="confirm-password" name="confirmPassword"
+                       type="password" autocomplete="new-password" required>
+
+                <button type="submit">Create account</button>
+            </form>
+
+            <p>Already have an account? <a href="index.html">Go back</a></p>
+        </section>
+    </main>
+</body>
+</html>

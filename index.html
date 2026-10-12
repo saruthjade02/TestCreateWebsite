@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="dir/script.js" defer></script>
+    <script src="dir/signup.js" defer></script>
     <title>META Browser</title>
 
 </head>
@@ -38,23 +39,25 @@
 
         <dialog id="login-modal">
             <button id="close-login" type="button">✖</button>
-            <h2>เข้าสู่ระบบ</h2>
+            <h2>Welcome Back</h2>
 
             <form id="login-form">
-                <label for="email">อีเมล</label>
+                <label for="email">Email</label>
                 <input id="email" type="email" autocomplete="username" required>
 
-                <label for="password">รหัสผ่าน</label>
+                <label for="password">Password</label>
                 <input id="password" type="password" autocomplete="current-password" required>
-                <button type="submit">เข้าสู่ระบบ</button>
+                <button type="submit">Sign in to your account</button>
+                <span>Don't have an account? <a href="signup.html" target="_blank">Sign up</a></span>
             </form>
+
         </dialog>
 
 
     </header>
 
     <main>
-        <section class="Profile">
+        <section class="Profile" id="Profile">
             <div class="ViewProfile">
                 <div class="ViewProfile__content">
                     <img src="mark1.jpg" alt="M1">
@@ -65,12 +68,17 @@
             <p></p>
             <div class="ViewProfile__controls">
                 <button class="prev" type="button" aria-label="รูปก่อนหน้า">&lt;</button>
+                <span class="Face">
+                    <span class="ProfileDots"></span>
+                    <span class="ProfileDots"></span>
+                    <span class="ProfileDots"></span>
+                </span>
                 <button class="next" type="button" aria-label="รูปถัดไป">&gt;</button>
             </div>
 
         </section>
 
-        <section class="Application">
+        <section class="Application" id="Application">
             <h1 class="section-heading">Application</h1>
 
 
@@ -104,7 +112,8 @@
                 </div>
             </div>
         </section>
-        <section class="Stock">
+
+        <section class="Stock" id="Stock">
             <h1 class="section-stock">Stock</h1>
             <div>
                 <div class="StockRange">
@@ -118,11 +127,10 @@
                 <div id="tooltip"></div>
                 <canvas id="meta-chart" width="800" height="400"></canvas>
             </div>
-
-
         </section>
 
-        <section>
+        
+        <section id="Production">
             <h1 class="section-prod">Production</h1>
 
             <div class="Production">

@@ -16,6 +16,7 @@ const images = document.querySelectorAll<HTMLImageElement>(".ViewProfile__conten
 let currentIndex = 0;
 const prev = document.querySelector<HTMLButtonElement>(".ViewProfile__controls .prev");
 const next = document.querySelector<HTMLButtonElement>(".ViewProfile__controls .next");
+const ProfileDots = document.querySelectorAll<HTMLSpanElement>(".ProfileDots");
 
 function showImage() {
   images.forEach((image, index) => {
@@ -25,15 +26,20 @@ function showImage() {
       image.hidden = true;
     }
   });
+  ProfileDots.forEach((dot, index) => {
+    dot.classList.toggle("selected", index === currentIndex);
+  });
 }
 
 prev?.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % images.length;
+  if (!images.length) return;
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
   showImage();
 });
 
 next?.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  if (!images.length) return;
+  currentIndex = (currentIndex + 1) % images.length;
   showImage();
 });
 
@@ -45,7 +51,6 @@ const slideImages = document.querySelectorAll<HTMLImageElement>(".SlideShow__con
 const slidePrev = document.querySelector<HTMLButtonElement>(".slide-prev");
 const slideNext = document.querySelector<HTMLButtonElement>(".slide-next");
 const dots = document.querySelectorAll<HTMLSpanElement>(".SlideShow__dot");
-
 let slideIndex = 0;
 
 
@@ -278,6 +283,3 @@ closeMenuBtn?.addEventListener("click", () => {
 });
 
 
-closeModalBtn?.addEventListener("click", () => {
-  loginModal?.close();
-});
