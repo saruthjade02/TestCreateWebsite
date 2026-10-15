@@ -1,11 +1,30 @@
-const signupForm = document.querySelector<HTMLFormElement>('#signup-form');
+const signupForm = document.querySelector<HTMLFormElement>("#signup-form");
 
-signupForm?.addEventListener('submit', async (event) => {
+signupForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const formData = new FormData(signupForm);
-    const data = {
-        name: formData.get('name') as string,
-        email: formData.get('email') as string,
-        password: formData.get('password') as string
-    };});
+    const name = document.querySelector<HTMLInputElement>("#signup-name")!;
+    const email = document.querySelector<HTMLInputElement>("#signup-email")!;
+    const password = document.querySelector<HTMLInputElement>("#signup-password")!;
+    const confirm = document.querySelector<HTMLInputElement>("#confirm-password")!;
+
+    if (password.value !== confirm.value) {
+        alert("รหัสผ่านสองช่องไม่ตรงกัน");
+        return;
+    }
+    
+    try{
+        const response = await fetch("/api/signup", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                name: name.value,
+                email: email.value,
+                password: password.value
+            })
+        }); 
+    }catch (error) {
+        console.error("เกิดข้อผิดพลาดในการส่งข้อมูล:", error);
+        alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
+    }
+});
