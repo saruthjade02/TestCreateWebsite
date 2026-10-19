@@ -20,6 +20,8 @@ signupForm?.addEventListener("submit", async (event) => {
                 password: password.value
             })
         });
+        const data = await response.json();
+        alert(data.message);
     }
     catch (error) {
         console.error("เกิดข้อผิดพลาดในการส่งข้อมูล:", error);

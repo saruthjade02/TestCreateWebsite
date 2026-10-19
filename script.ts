@@ -11,40 +11,6 @@ button_setting.forEach((button) => {
 });
 
 
-// ViewProfile  
-const images = document.querySelectorAll<HTMLImageElement>(".ViewProfile__content img");
-let currentIndex = 0;
-const prev = document.querySelector<HTMLButtonElement>(".ViewProfile__controls .prev");
-const next = document.querySelector<HTMLButtonElement>(".ViewProfile__controls .next");
-const ProfileDots = document.querySelectorAll<HTMLSpanElement>(".ProfileDots");
-
-function showImage() {
-  images.forEach((image, index) => {
-    if (index === currentIndex) {
-      image.hidden = false;
-    } else {
-      image.hidden = true;
-    }
-  });
-  ProfileDots.forEach((dot, index) => {
-    dot.classList.toggle("selected", index === currentIndex);
-  });
-}
-
-prev?.addEventListener("click", () => {
-  if (!images.length) return;
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showImage();
-});
-
-next?.addEventListener("click", () => {
-  if (!images.length) return;
-  currentIndex = (currentIndex + 1) % images.length;
-  showImage();
-});
-
-showImage();
-
 // SlideShow Application
 const slideTrack = document.querySelector<HTMLDivElement>(".SlideShow__content");
 const slideImages = document.querySelectorAll<HTMLImageElement>(".SlideShow__content img");

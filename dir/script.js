@@ -9,38 +9,6 @@ button_setting.forEach((button) => {
         button.classList.remove("hovered");
     });
 });
-// ViewProfile  
-const images = document.querySelectorAll(".ViewProfile__content img");
-let currentIndex = 0;
-const prev = document.querySelector(".ViewProfile__controls .prev");
-const next = document.querySelector(".ViewProfile__controls .next");
-const ProfileDots = document.querySelectorAll(".ProfileDots");
-function showImage() {
-    images.forEach((image, index) => {
-        if (index === currentIndex) {
-            image.hidden = false;
-        }
-        else {
-            image.hidden = true;
-        }
-    });
-    ProfileDots.forEach((dot, index) => {
-        dot.classList.toggle("selected", index === currentIndex);
-    });
-}
-prev?.addEventListener("click", () => {
-    if (!images.length)
-        return;
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage();
-});
-next?.addEventListener("click", () => {
-    if (!images.length)
-        return;
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage();
-});
-showImage();
 // SlideShow Application
 const slideTrack = document.querySelector(".SlideShow__content");
 const slideImages = document.querySelectorAll(".SlideShow__content img");

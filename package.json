@@ -11,5 +11,9 @@
   "devDependencies": {
     "@types/node": "^26.6.5",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "argon2": "^0.45.1",
+    "mysql2": "^3.24.6"
   }
 }

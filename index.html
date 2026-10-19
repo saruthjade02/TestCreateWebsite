@@ -30,7 +30,7 @@
                 <button id="close-menu-btn" type="button">✖</button>
             </div>
             <nav class="menu-list">
-                <a href="#Profile">Profile</a>
+                <a href="#Home">Home</a>
                 <a href="#Application">Application</a>
                 <a href="#Stock">Stock</a>
                 <a href="#Production">Production</a>
@@ -57,25 +57,20 @@
     </header>
 
     <main>
-        <section class="Profile" id="Profile">
-            <div class="ViewProfile">
-                <div class="ViewProfile__content">
-                    <img src="mark1.jpg" alt="M1">
-                    <img src="mark2.png" alt="M2">
-                    <img src="mark3.jpg" alt="M3">
+        <section class="hero" id="Home" aria-labelledby="hero-title">
+            <div class="hero__content">
+                <p class="hero__eyebrow">META QUEST</p>
+                <h1 id="hero-title">เปิดประสบการณ์ใหม่<br>กับ Meta Quest</h1>
+                <p class="hero__description">สำรวจอุปกรณ์และแอปจาก Meta แล้วค้นพบสิ่งที่เข้ากับไลฟ์สไตล์ของคุณ</p>
+                <div class="hero__actions">
+                    <a class="hero__button" href="#Production">ดูสินค้า <span aria-hidden="true">↗</span></a>
+                    <a class="hero__link" href="#Application">สำรวจแอป</a>
                 </div>
             </div>
-            <p></p>
-            <div class="ViewProfile__controls">
-                <button class="prev" type="button" aria-label="รูปก่อนหน้า">&lt;</button>
-                <span class="Face">
-                    <span class="ProfileDots"></span>
-                    <span class="ProfileDots"></span>
-                    <span class="ProfileDots"></span>
-                </span>
-                <button class="next" type="button" aria-label="รูปถัดไป">&gt;</button>
+            <div class="hero__visual">
+                <img class="hero__image" src="Meta_Quest.jpg" alt="อุปกรณ์ Meta Quest">
+                <p class="hero__caption">Meta Quest <span>อุปกรณ์เด่น</span></p>
             </div>
-
         </section>
 
         <section class="Application" id="Application">
