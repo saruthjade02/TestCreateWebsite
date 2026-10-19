@@ -86,6 +86,7 @@ const server = createServer(async (req, res) => {
                 data.email.trim().toLowerCase(),
                 passwordHash
             ]);
+            res.statusCode = 201;
             res.end(JSON.stringify({
                 message: "สมัครสมาชิกสำเร็จ"
             }));

@@ -12,11 +12,11 @@ signupForm?.addEventListener("submit", async (event) => {
         alert("รหัสผ่านสองช่องไม่ตรงกัน");
         return;
     }
-    
-    try{
+
+    try {
         const response = await fetch("/api/signup", {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 name: name.value,
                 email: email.value,
@@ -25,8 +25,13 @@ signupForm?.addEventListener("submit", async (event) => {
         });
 
         const data = await response.json();
-        alert(data.message);
-    }catch (error) {
+        if (response.status === 201) {
+            window.location.href = '/index.html';
+        } else {
+            alert(data.message);
+        }
+
+    } catch (error) {
         console.error("เกิดข้อผิดพลาดในการส่งข้อมูล:", error);
         alert("เกิดข้อผิดพลาดในการส่งข้อมูล");
     }

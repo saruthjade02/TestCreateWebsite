@@ -113,7 +113,8 @@ const server = createServer(async (req, res) => {
                     passwordHash
                 ]
             );
-
+ 
+            res.statusCode = 201;
             res.end(JSON.stringify({
                 message: "สมัครสมาชิกสำเร็จ"
             }));

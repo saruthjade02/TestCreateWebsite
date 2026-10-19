@@ -21,7 +21,13 @@ signupForm?.addEventListener("submit", async (event) => {
             })
         });
         const data = await response.json();
-        alert(data.message);
+        if (response.status === 201) {
+            alert(data.message);
+            window.location.href = '/index.html';
+        }
+        else {
+            alert(data.message);
+        }
     }
     catch (error) {
         console.error("เกิดข้อผิดพลาดในการส่งข้อมูล:", error);
