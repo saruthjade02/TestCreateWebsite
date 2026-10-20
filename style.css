@@ -97,7 +97,7 @@ section[id] {
     padding: 48px;
     border: 1px solid #dce6f3;
     border-radius: 28px;
-    background: linear-gradient(125deg, #ffffff, #e8eef7);
+    background: linear-gradient(150deg, #ffffff, #e8eef7);
 }
 
 .hero__content,
@@ -105,18 +105,10 @@ section[id] {
     min-width: 0;
 }
 
-.hero__eyebrow {
-    margin: 0 0 16px;
-    color: #365477;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-}
-
 .hero h1 {
     margin: 0;
     color: #142d4e;
-    font-size: clamp(30px, 4vw, 48px);
+    font-size: clamp(32px, 4vw, 48px);
     line-height: 1.35;
     letter-spacing: -0.02em;
 }
@@ -131,9 +123,9 @@ section[id] {
 
 .hero__actions {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 20px;
+    margin-top: 45px;
 }
 
 .hero__button {

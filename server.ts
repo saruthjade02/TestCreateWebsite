@@ -22,7 +22,7 @@ const file: Record<string, [string, string]> = {
     "/Threads.png": ["Threads.png", "image/png"],
 
     "/Meta_Quest.jpg": ["Meta_Quest.jpg", "image/jpeg"],
-    "/oakley_meta.png": ["oakley_meta.png", "image/png"],
+    "/oakley_meta.jpg": ["oakley_meta.jpg", "image/jpeg"],
     "/rayban-meta.jpg": ["rayban-meta.jpg", "image/jpeg"]
 };
 

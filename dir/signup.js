@@ -22,7 +22,6 @@ signupForm?.addEventListener("submit", async (event) => {
         });
         const data = await response.json();
         if (response.status === 201) {
-            alert(data.message);
             window.location.href = '/index.html';
         }
         else {
