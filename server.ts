@@ -6,11 +6,13 @@ const file: Record<string, [string, string]> = {
     "/": ["index.html", "text/html; charset=utf-8"],
     "/index.html": ["index.html", "text/html; charset=utf-8"],
     "/signup.html": ["signup.html", "text/html; charset=utf-8"],
+    "/product.html": ["product.html", "text/html; charset=utf-8"],
 
     "/style.css": ["style.css", "text/css; charset=utf-8"],
     "/dir/script.js": ["dir/script.js", "text/javascript; charset=utf-8"],
     "/dir/signup.js": ["dir/signup.js", "text/javascript; charset=utf-8"],
-
+    "/dir/product.js": ["dir/product.js", "text/javascript; charset=utf-8"],
+    
     "/META.png": ["META.png", "image/png"],
     "/mark1.jpg": ["mark1.jpg", "image/jpeg"],
     "/mark2.png": ["mark2.png", "image/png"],
@@ -27,13 +29,8 @@ const file: Record<string, [string, string]> = {
 };
 
 const server = createServer(async (req, res) => {
-    let url = "";
-
-    if (req.url !== undefined) {
-        url = req.url;
-    }
-
-    const selectedFile = file[url];
+    const requestUrl = new URL(req.url ?? "/", "http://localhost:3000");
+    const selectedFile = file[requestUrl.pathname];
 
     if (req.method === "GET" && selectedFile) {
         const [filename, contentType] = selectedFile;

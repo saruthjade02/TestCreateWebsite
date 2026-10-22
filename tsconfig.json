@@ -17,7 +17,8 @@
   "include": [
     "script.ts",
     "server.ts",
-    "signup.ts"
+    "signup.ts",
+    "product.ts"
   ]
 }
 
