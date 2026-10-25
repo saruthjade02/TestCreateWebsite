@@ -16,6 +16,8 @@ body {
     height: auto;
     position: relative;
     border: 2px solid #365477;
+    margin-right: 3px;
+    margin-left: 5px;
 }
 
 
@@ -30,19 +32,21 @@ body {
     margin: 2px;
     transition: transform 0.2s ease;
     display: inline-block;
+    font-size: large;
 }
 
 .nav-btn.hovered {
     transform: scale(1.1);
     background-color: #183653;
-}
+} 
 
 .content__title {
     font-family: "Anuphan", sans-serif;
-    font-size: 30px;
+    font-size: large;
     font-weight: bold;
     color: #f8fafc;
     position: relative;
+
 }
 
 header {
@@ -56,6 +60,33 @@ header {
     z-index: 1000;
 
 }
+
+.home-header {
+    background-color: #cbd9eb;
+    border-bottom: 1px solid #365477;
+}
+
+
+
+.home-header .content__img {
+    display: block;
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.home-header .content__title {
+    color: #142d4e;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.06em;
+}
+
+
 
 .settings {
     margin-left: auto;
@@ -581,14 +612,156 @@ form[id="signup-form"] button[type="submit"] {
 }
 
 
-.product-card{
+.product-page {
+    background: #e1e5eb;
+}
+
+.product-header {
+    box-sizing: border-box;
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 48px);
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 28px 0;
+    background: transparent;
+}
+
+.product-brand {
+    color: #142d4e;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.product-brand span {
+    margin-left: 10px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.product-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    color: #475569;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.product-back:hover { color: #2563eb; }
+
+.product-card {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     align-items: center;
-    justify-items: center;
     width: calc(100% - 48px);
     max-width: 1120px;
-    margin: 32px auto 48px;
-    gap: 25px;
+    margin: 32px auto 24px;
+    gap: 48px;
+    border: 1px solid #e0e8f2;
+    border-radius: 28px;
+    padding: 40px;
+    background: #ffffff;
+    box-shadow: 0 24px 64px rgb(20 45 78 / 7%);
 }
+
+.product-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 420px;
+    padding: 24px;
+    box-sizing: border-box;
+    border: 1px solid #e7edf5;
+    border-radius: 20px;
+    background: radial-gradient(ellipse at center, #ffffff 25%, #edf3fb 100%);
+}
+
+#product-image {
+    display: block;
+    width: 100%;
+    height: 340px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+#product-image[hidden] { display: none; }
+
+.product-info {
+    min-width: 0;
+    padding: 16px 0;
+}
+
+.product-eyebrow {
+    margin: 0 0 16px;
+    color: #416895;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+#product-title {
+    margin: 0;
+    color: #142d4e;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
+}
+
+.product-divider {
+    width: 48px;
+    height: 3px;
+    margin: 24px 0;
+    border-radius: 3px;
+    background: #2563eb;
+}
+
+#product-description {
+    margin: 0;
+    color: #57677b;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.product-explore {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    box-sizing: border-box;
+    min-height: 48px;
+    margin-top: 32px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    background: #254567;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.product-explore:hover { background: #142d4e; }
+
+.product-page a:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 5px;
+}
+
+.product-footer {
+    padding: 8px 24px 32px;
+    color: #64748b;
+    font-size: 13px;
+    text-align: center;
+}
+

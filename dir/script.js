@@ -200,6 +200,14 @@ loginBtn?.addEventListener("click", () => {
 closeModalBtn?.addEventListener("click", () => {
     loginModal?.close();
 });
+const Signup = document.querySelector("#login-form span a");
+const Signin = document.querySelector("#login-form button");
+Signup?.addEventListener("click", () => {
+    loginModal?.close();
+});
+Signin?.addEventListener("click", () => {
+    loginModal?.close();
+});
 const menuBtn = document.querySelector("#menu-btn");
 const menuDialog = document.querySelector("#menu-dialog");
 const closeMenuBtn = document.querySelector("#close-menu-btn");
@@ -208,4 +216,10 @@ menuBtn?.addEventListener("click", () => {
 });
 closeMenuBtn?.addEventListener("click", () => {
     menuDialog?.close();
+});
+const menuLinks = document.querySelectorAll(".menu-list a");
+menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        menuDialog?.close();
+    });
 });

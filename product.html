@@ -10,7 +10,11 @@
     <title>Product Details</title>
 </head>
 
-<body>
+<body class="product-page">
+    <header class="product-header">
+        <a class="product-brand" href="/">Meta<span>Collection</span></a>
+        <a class="product-back" href="/#Production"><span aria-hidden="true">←</span> All products</a>
+    </header>
     <main class="product-card">
         <div class="product-visual">
             <img id="product-image" alt="" hidden>
@@ -18,10 +22,12 @@
 
         <div class="product-info">
             <h1 id="product-title"></h1>
+            <div class="product-divider" aria-hidden="true"></div>
             <p id="product-description"></p>
-            <a href="/#Production">Back to products</a>
+            <a class="product-explore" href="/#Production">Explore more products <span aria-hidden="true">↗</span></a>
         </div>
     </main>
+    
 </body>
 
 </html>
