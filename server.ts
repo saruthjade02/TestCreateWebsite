@@ -25,7 +25,11 @@ const file: Record<string, [string, string]> = {
 
     "/Meta_Quest.jpg": ["Meta_Quest.jpg", "image/jpeg"],
     "/oakley_meta.jpg": ["oakley_meta.jpg", "image/jpeg"],
-    "/rayban-meta.jpg": ["rayban-meta.jpg", "image/jpeg"]
+    "/rayban-meta.jpg": ["rayban-meta.jpg", "image/jpeg"],
+
+
+    "/Linked-in.jpg": ["Linked-in.jpg", "image/jpeg"],
+    "/github.png": ["github.png", "image/png"],
 };
 
 const server = createServer(async (req, res) => {
