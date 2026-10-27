@@ -138,7 +138,7 @@ function drawChart(points: StockPoint[]) {
   const gradient = ctx.createLinearGradient(0, top, 0, bottom);
   gradient.addColorStop(0, "rgba(37, 99, 235, 0.22)");
   gradient.addColorStop(1, "rgba(37, 99, 235, 0)");
-  
+
   ctx.beginPath();
   ctx.moveTo(left, bottom);
   chartPoints.forEach(item => ctx.lineTo(item.x, item.y));
@@ -228,22 +228,46 @@ const loginModal = document.querySelector<HTMLDialogElement>("#login-modal");
 const closeModalBtn = document.querySelector<HTMLButtonElement>("#close-login");
 
 loginBtn?.addEventListener("click", () => {
-   loginModal?.showModal();
-  }
+  loginModal?.showModal();
+}
 );
+
+async function loadProfile() {
+  try {
+    const response = await fetch("/api/me");
+
+    if (response.status === 401) {
+      return;
+    }
+
+    if (!response.ok) {
+      console.error("Failed to load user data");
+      return;
+    }
+
+    const data = await response.json();
+
+    if(loginBtn)
+    {
+      loginBtn.textContent = `🫪 ${data.name}`;
+    }
+  }
+  catch(error) {
+    console.error("Failed to connect to the server:", error);
+  }
+}
+
+loadProfile();
 
 closeModalBtn?.addEventListener("click", () => {
   loginModal?.close();
 });
 
-const  Signup = document.querySelector<HTMLAnchorElement>("#login-form span a");
-const  Signin = document.querySelector<HTMLAnchorElement>("#login-form button");
-Signup?.addEventListener("click",() =>{
-    loginModal?.close();
+const Signup = document.querySelector<HTMLAnchorElement>("#login-form span a");
+Signup?.addEventListener("click", () => {
+  loginModal?.close();
 });
-Signin?.addEventListener("click",() =>{
-    loginModal?.close();
-});
+
 
 const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
 const menuDialog = document.querySelector<HTMLDialogElement>("#menu-dialog");

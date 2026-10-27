@@ -197,15 +197,31 @@ const closeModalBtn = document.querySelector("#close-login");
 loginBtn?.addEventListener("click", () => {
     loginModal?.showModal();
 });
+async function loadProfile() {
+    try {
+        const response = await fetch("/api/me");
+        if (response.status === 401) {
+            return;
+        }
+        if (!response.ok) {
+            console.error("Failed to load user data");
+            return;
+        }
+        const data = await response.json();
+        if (loginBtn) {
+            loginBtn.textContent = `🫪 ${data.name}`;
+        }
+    }
+    catch (error) {
+        console.error("Failed to connect to the server:", error);
+    }
+}
+loadProfile();
 closeModalBtn?.addEventListener("click", () => {
     loginModal?.close();
 });
 const Signup = document.querySelector("#login-form span a");
-const Signin = document.querySelector("#login-form button");
 Signup?.addEventListener("click", () => {
-    loginModal?.close();
-});
-Signin?.addEventListener("click", () => {
     loginModal?.close();
 });
 const menuBtn = document.querySelector("#menu-btn");

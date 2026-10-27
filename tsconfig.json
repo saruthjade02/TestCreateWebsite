@@ -18,7 +18,8 @@
     "script.ts",
     "server.ts",
     "signup.ts",
-    "product.ts"
+    "product.ts",
+    "login.ts"
   ]
 }
 
