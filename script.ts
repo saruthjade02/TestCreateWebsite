@@ -1,3 +1,4 @@
+
 //Setting
 const button_setting = document.querySelectorAll<HTMLAnchorElement>(".nav-btn");
 button_setting.forEach((button) => {
@@ -222,15 +223,38 @@ range_button.forEach((button) => {
 
 loadStock("1D");
 
-
+const profileDialog = document.querySelector<HTMLDialogElement>("#profile-dialog");
+const closeProfileBtn = document.querySelector<HTMLButtonElement>("#close-profile");
 const loginBtn = document.querySelector<HTMLButtonElement>("#login-btn");
 const loginModal = document.querySelector<HTMLDialogElement>("#login-modal");
 const closeModalBtn = document.querySelector<HTMLButtonElement>("#close-login");
+const btnClose = document.querySelector<HTMLButtonElement>("#close-profile");
 
-loginBtn?.addEventListener("click", () => {
-  loginModal?.showModal();
-}
-);
+
+loginBtn?.addEventListener("click", async () => {
+  try {
+    const response = await fetch("/api/me");
+
+    if (response.ok) {
+      profileDialog?.showModal();
+    }
+    else if (response.status === 401) {
+      loginModal?.showModal();
+    }
+    else {
+      alert("Error !! , Can not Login");
+    }
+  }
+  catch (error) {
+    console.error("Failed to check login status:", error);
+    alert("Unable to connect to the server");
+  }
+
+});
+
+btnClose?.addEventListener("click", () => {
+  profileDialog?.close();
+});
 
 async function loadProfile() {
   try {
@@ -247,12 +271,20 @@ async function loadProfile() {
 
     const data = await response.json();
 
-    if(loginBtn)
-    {
-      loginBtn.textContent = `🫪 ${data.name}`;
+    if (loginBtn) {
+      const loginName = document.querySelector<HTMLSpanElement>("#login-name");
+      const profileImage = document.querySelector<HTMLImageElement>("#profile-image");
+
+      if (loginName) {
+        loginName.textContent = data.name;
+      }
+
+      if (profileImage) {
+        profileImage.hidden = false;
+      }
     }
   }
-  catch(error) {
+  catch (error) {
     console.error("Failed to connect to the server:", error);
   }
 }
@@ -288,3 +320,4 @@ menuLinks.forEach((link) => {
     menuDialog?.close();
   });
 });
+

@@ -14,6 +14,7 @@ const file = {
     "/dir/signup.js": ["dir/signup.js", "text/javascript; charset=utf-8"],
     "/dir/product.js": ["dir/product.js", "text/javascript; charset=utf-8"],
     "/dir/login.js": ["dir/login.js", "text/javascript; charset=utf-8"],
+    "/anonymous.png": ["anonymous.png", "image/png"],
     "/META.png": ["META.png", "image/png"],
     "/mark1.jpg": ["mark1.jpg", "image/jpeg"],
     "/mark2.png": ["mark2.png", "image/png"],

@@ -2,7 +2,14 @@ body {
     margin: 0;
     background-color: #f3f6fb;
     color: #243247;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
 }
 
 .content__container {
@@ -25,23 +32,24 @@ body {
 .nav-btn {
     color: #f8fafc;
     background-color: #254567;
-    border: 2px solid #365477;
+    border: none;
     border-radius: 6px;
-    padding: 2px 2px;
-    font-family: "Anuphan", sans-serif;
+    padding: auto 4px;
+    font-family: "IBM Plex Sans Thai", sans-serif;
     margin: 2px;
     transition: transform 0.2s ease;
-    display: inline-block;
     font-size: large;
+    display: inline-block;
+  
 }
 
 .nav-btn.hovered {
     transform: scale(1.1);
-    background-color: #183653;
+    background-color: #142d4e;
 } 
 
 .content__title {
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
     font-size: large;
     font-weight: bold;
     color: #f8fafc;
@@ -91,6 +99,9 @@ header {
 .settings {
     margin-left: auto;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 
@@ -211,7 +222,7 @@ section[id] {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
     margin: 16px 0 0;
     padding-top: 16px;
     border-top: 1px solid #e8eef7;
@@ -256,7 +267,7 @@ section[id] {
     margin: 48px auto 28px;
     padding: 0;
     color: #142d4e;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
     font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
     line-height: 1.4;
@@ -346,14 +357,14 @@ section[id] {
     font-size: 40px;
     line-height: 0.7;
     cursor: pointer;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
 .Dots {
     display: flex;
     gap: 10px;
     position: relative;
-    top: 13px;
+    top: 8px;
 
 }
 
@@ -400,7 +411,7 @@ button[data-range] {
     border-radius: 10px;
     background: transparent;
     color: #42536b;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 1.2;
@@ -428,7 +439,7 @@ button[data-range][aria-pressed="true"] {
     display: flex;
     justify-content: center;
     color: #475569;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
 #tooltip {
@@ -440,7 +451,7 @@ button[data-range][aria-pressed="true"] {
     padding: 8px 12px;
     border-radius: 8px;
     font-size: 14px;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
     white-space: pre;
     z-index: 2000;
 }
@@ -451,7 +462,7 @@ button[data-range][aria-pressed="true"] {
     gap: 16px;
     padding: 0 40px;
     font-size: 14px;
-    font-family: "Anuphan", sans-serif;    
+    font-family: "IBM Plex Sans Thai", sans-serif;    
 }
 
 .Production a{
@@ -502,7 +513,7 @@ button[data-range][aria-pressed="true"] {
 
 #login-modal input,#login-modal button {
     padding: 10px;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
 
@@ -525,28 +536,28 @@ button[data-range][aria-pressed="true"] {
     margin: 0 auto;
 }
 /* display บอกว่ากล่องจัดวางแบบไหน ส่วน position บอกว่ากล่องอยู่ตรงไหนครับ */
-#close-login {
+#close-login,#close-profile {
     float: right;
     border: none;
     background: transparent;
     cursor: pointer;
 }
-.menu-title{
-    font-family: "Anuphan", sans-serif;
-    font-size: 24px;
+.menu-title,.profile-title{
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-size: 20px;
     font-weight: bold;
     color: #243247;
 }
 
-.menu-header {
+.menu-header,#profile-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #e2e8f0;
 }
 
-#menu-dialog {
+#menu-dialog,#profile-dialog {
     background: white;
     color: #243247;
     position: fixed;
@@ -559,11 +570,11 @@ button[data-range][aria-pressed="true"] {
     border-radius: 12px 0 0 12px;
 }
 
-#menu-dialog::backdrop {
+#menu-dialog::backdrop,#profile-dialog::backdrop  {
     background: rgb(0 0 0 / 45%);
 }
 
-#menu-dialog nav {
+#menu-dialog nav,#profile-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -576,14 +587,14 @@ button[data-range][aria-pressed="true"] {
     background-color: transparent;
     cursor: pointer;
 }
-.menu-list {
-    font-family: "Anuphan", sans-serif;
-    font-size: 20px;
+.menu-list,#profile-list {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-size: large;
     padding: 0;
     margin: 30px 0 0 0;
 }
 
-.menu-list a {
+.menu-list a,#profile-list a {
     text-decoration: none;
     color: #243247;
     padding: 8px 12px;
@@ -592,7 +603,7 @@ button[data-range][aria-pressed="true"] {
     cursor: pointer;
 }
 
-.menu-list a:hover {
+.menu-list a:hover,#profile-list a:hover {
     background-color: #e8eef7;
     color: #254567;
 }
@@ -625,7 +636,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-family: "Anuphan", sans-serif;
+    font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
 form[id="signup-form"] button[type="submit"] {
@@ -814,4 +825,30 @@ form[id="signup-form"] button[type="submit"] {
     width: 20px;
     height: 20px;
     border-radius: 5px;
+}
+
+#login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#profile-image {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 100%;
+}
+
+#logout-btn{
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    font-size: large;
+    background: #142d4e;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    position: absolute;
+    bottom: 45px;
+    left: 43%
+
 }

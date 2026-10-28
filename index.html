@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
     <script src="dir/script.js" defer></script>
     <script src="dir/signup.js" defer></script>
     <script src="dir/login.js" defer></script>
@@ -21,7 +22,10 @@
 
         <nav class="settings">
             <button class="nav-btn" id="menu-btn" type="button">MENU</button>
-            <button class="nav-btn" id="login-btn" type="button">LOGIN</button>
+            <button class="nav-btn" id="login-btn" type="button">
+                <img id="profile-image" src="/anonymous.png" alt="anonymous" hidden>
+                <span id="login-name">LOGIN</span>
+            </button>
         </nav>
 
         <dialog id="menu-dialog">
@@ -48,11 +52,22 @@
                 <label for="password">Password</label>
                 <input id="password" type="password" autocomplete="current-password" required>
                 <button type="submit">Sign in to your account</button>
-                <span>Don't have an account? <a href="signup.html" >Sign up</a></span>
+                <span>Don't have an account? <a href="signup.html">Sign up</a></span>
             </form>
 
         </dialog>
 
+        <dialog id="profile-dialog">
+            <div id="profile-header">
+                <span class="profile-title">PROFILE</span>
+                <button id="close-profile" type="button">✖</button>
+            </div>
+            <nav id="profile-list">
+                <a href="/account.html">My Account</a>
+                <button id="logout-btn" type="button">Log out</button>
+            </nav>
+
+        </dialog>
 
     </header>
 

@@ -22,7 +22,16 @@ login?.addEventListener("submit", async (event) => {
             const loginButton = document.querySelector<HTMLButtonElement>("#login-btn");
 
             if (loginButton) {
-                loginButton.textContent = `🫪 ${data.name}`;
+                const loginName = document.querySelector<HTMLSpanElement>("#login-name");
+                const profileImage = document.querySelector<HTMLImageElement>("#profile-image");
+
+                if (loginName) {
+                    loginName.textContent = data.name;
+                }
+
+                if (profileImage) {
+                    profileImage.hidden = false;
+                }
             }
 
             const modal = document.querySelector<HTMLDialogElement>("#login-modal");
