@@ -291,6 +291,30 @@ async function loadProfile() {
 
 loadProfile();
 
+const LogoutBtn = document.querySelector<HTMLButtonElement>("#logout-btn");
+
+LogoutBtn?.addEventListener("click",async () =>{
+      try{
+        const response = await fetch("/api/logout",{
+          method: "POST"
+        });
+
+
+      if(response.ok)
+      {
+        window.location.href = "/";
+      }
+      else{
+        alert("Log Out Unsuccessful!!!!");
+      }
+
+      }catch(error)
+      {
+        console.error("Failed to Logout:", error);
+      }
+});
+
+
 closeModalBtn?.addEventListener("click", () => {
   loginModal?.close();
 });

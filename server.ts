@@ -82,7 +82,7 @@ app.use(session({
     }
 }));
 
-app.get("/api/me",async (req,res) =>{
+app.get("/api/me", async (req, res) => {
     const userId = req.session.userId;
     if (userId === undefined) {
         res.status(401).send({
@@ -242,7 +242,7 @@ app.post("/api/login", async (req, res) => {
             });
         });
 
-        
+
     }
     catch (error) {
         console.error("Login error:", error);
@@ -253,6 +253,22 @@ app.post("/api/login", async (req, res) => {
     }
 });
 
+app.post("/api/logout", (req, res) => {
+    req.session.destroy((error) => {
+        if (error) {
+            res.status(500).send({
+                message: "Log Out Failed!!"
+            });
+            return;
+        }
+
+        res.clearCookie("connect.sid");
+
+        res.status(200).send({
+            message: "Log Out Success"
+        });
+    });
+});
 
 
 

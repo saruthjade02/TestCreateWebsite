@@ -175,6 +175,20 @@ app.post("/api/login", async (req, res) => {
         });
     }
 });
+app.post("/api/logout", (req, res) => {
+    req.session.destroy((error) => {
+        if (error) {
+            res.status(500).send({
+                message: "Log Out Failed!!"
+            });
+            return;
+        }
+        res.clearCookie("connect.sid");
+        res.status(200).send({
+            message: "Log Out Success"
+        });
+    });
+});
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT ?? 3306),
