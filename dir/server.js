@@ -192,6 +192,28 @@ app.post("/api/logout", (req, res) => {
         });
     });
 });
+app.post("/api/update-value", async (req, res) => {
+    try {
+        const userId = req.session.userId;
+        if (userId === undefined) {
+            return res.status(401).json({
+                message: "Please log in first."
+            });
+        }
+        const data = req.body;
+        const result = await db.execute("UPDATE users SET name = ? WHERE id = ?", [data.name, userId]);
+        res.status(200).send({
+            message: "Update successful",
+            name: data.name
+        });
+    }
+    catch (error) {
+        console.error("Update name error:", error);
+        return res.status(500).json({
+            message: "Unable to save name"
+        });
+    }
+});
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT ?? 3306),

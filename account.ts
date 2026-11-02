@@ -22,10 +22,36 @@ async function loadAccount() {
 loadAccount();
 
 
-const submitBtn = document.querySelector<HTMLButtonElement>("#submit-profile");
-submitBtn?.addEventListener("click", async () => {
+const profileForm = document.querySelector<HTMLFormElement>("#profile-form");
+profileForm?.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
     const AccName = document.querySelector<HTMLInputElement>("#account-name");
-    const AccEmail = document.querySelector<HTMLInputElement>("#account-email");
+
+    if (!AccName) { return }
+    try {
+        const res = await fetch("/api/update-value", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: AccName.value
+            })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+            alert(data.message);
+            return;
+        }
+        alert("Completely Record");
+        window.location.href = "/";
+    }
+    catch (error) {
+        console.error("Unable to save name:", error);
+        alert("Unable to connect to the server");
+    }
 
 
 });

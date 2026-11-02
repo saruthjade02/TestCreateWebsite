@@ -13,11 +13,12 @@
 
 <body id="Account-Page">
     <header class="account-header">
-        <a href="/" style="text-decoration: none; color: #000000;">← Back to home</a>
+        <a href="/">← Back to home</a>
     </header>
 
     <main id="account-container">
         <h1>My Account</h1>
+        <p class="account-intro">Manage your personal information.</p>
         <section>
 
             <form id="profile-form">
@@ -26,6 +27,7 @@
 
                 <label for="account-email">Email</label>
                 <input id="account-email" type="email" readonly>
+                <p class="account-hint">Your email address can't be changed here.</p>
 
                 <button type="submit">Save changes</button>
             </form>
