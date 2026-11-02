@@ -9,11 +9,13 @@ const file = {
     "/index.html": ["index.html", "text/html; charset=utf-8"],
     "/signup.html": ["signup.html", "text/html; charset=utf-8"],
     "/product.html": ["product.html", "text/html; charset=utf-8"],
+    "/account.html": ["account.html", "text/html; charset=utf-8"],
     "/style.css": ["style.css", "text/css; charset=utf-8"],
     "/dir/script.js": ["dir/script.js", "text/javascript; charset=utf-8"],
     "/dir/signup.js": ["dir/signup.js", "text/javascript; charset=utf-8"],
     "/dir/product.js": ["dir/product.js", "text/javascript; charset=utf-8"],
     "/dir/login.js": ["dir/login.js", "text/javascript; charset=utf-8"],
+    "/dir/account.js": ["dir/account.js", "text/javascript; charset=utf-8"],
     "/anonymous.png": ["anonymous.png", "image/png"],
     "/META.png": ["META.png", "image/png"],
     "/mark1.jpg": ["mark1.jpg", "image/jpeg"],
@@ -56,7 +58,7 @@ app.get("/api/me", async (req, res) => {
         return;
     }
     try {
-        const [users] = await db.execute("SELECT id, name FROM users WHERE id = ?", [userId]);
+        const [users] = await db.execute("SELECT id, name, email FROM users WHERE id = ?", [userId]);
         const user = users[0];
         if (!user) {
             res.status(401).send({
@@ -66,7 +68,8 @@ app.get("/api/me", async (req, res) => {
         }
         res.status(200).send({
             id: user.id,
-            name: user.name
+            name: user.name,
+            email: user.email
         });
     }
     catch (error) {

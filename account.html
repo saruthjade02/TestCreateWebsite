@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <script src="dir/account.js" defer></script>
+</head>
+
+<body id="Account-Page">
+    <header class="account-header">
+        <a href="/" style="text-decoration: none; color: #000000;">← Back to home</a>
+    </header>
+
+    <main id="account-container">
+        <h1>My Account</h1>
+        <section>
+
+            <form id="profile-form">
+                <label for="account-name">Name</label>
+                <input id="account-name" name="name" type="text" required>
+
+                <label for="account-email">Email</label>
+                <input id="account-email" type="email" readonly>
+
+                <button type="submit">Save changes</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

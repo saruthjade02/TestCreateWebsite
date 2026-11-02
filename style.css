@@ -313,7 +313,7 @@ section[id] {
     margin: 10px auto;
     overflow: hidden;
     border-radius: 20px;
-    border: 2px solid black;
+    border: 1px solid #cbd9eb;
 }
 
 .SlideShow__content {
@@ -634,7 +634,7 @@ button[data-range][aria-pressed="true"] {
 input[type="text"], input[type="email"], input[type="password"] {
     width: 80%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #cbd9eb;
     border-radius: 8px;
     font-family: "IBM Plex Sans Thai", sans-serif;
 }
@@ -653,7 +653,7 @@ form[id="signup-form"] button[type="submit"] {
 
 
 .product-page {
-    background: #e1e5eb;
+    background: #f3f6fb;
 }
 
 .product-header {
@@ -852,3 +852,49 @@ form[id="signup-form"] button[type="submit"] {
     left: 43%
 
 }
+
+
+#Account-Page{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #f3f6fb;
+}
+
+.account-header{
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: transparent;
+}
+
+#account-container{
+    box-sizing: border-box;
+    width: min(480px, calc(100% - 32px));
+    margin: 100px 0 32px;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #cbd9eb;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(20, 45, 78, 0.1);
+
+}
+
+#account-container h1 {
+    margin: 0 0 20px;
+    color: #142d4e;
+    font-size: 28px;
+}
+
+#account-info p {
+    margin: 0;
+    padding: 14px 0;
+    color: #64748b;
+}
+
+#account-info span {
+    color: #243247;
+    font-weight: 500;
+}
+
