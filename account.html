@@ -13,25 +13,44 @@
 
 <body id="Account-Page">
     <header class="account-header">
-        <a href="/">← Back to home</a>
+        <a href="/" style="text-decoration: none; color: #000000;">← Back to home</a>
     </header>
 
     <main id="account-container">
         <h1>My Account</h1>
-        <p class="account-intro">Manage your personal information.</p>
         <section>
-
             <form id="profile-form">
                 <label for="account-name">Name</label>
                 <input id="account-name" name="name" type="text" required>
 
                 <label for="account-email">Email</label>
                 <input id="account-email" type="email" readonly>
-                <p class="account-hint">Your email address can't be changed here.</p>
 
+                <fieldset>
+                    <legend>Password</legend>
+                    <label class="password-option">
+                        <input id="account-password" type="radio" name="ChangePassword" value="no" checked>
+                        <span>Keep current password</span>
+                    </label>
+                    <label class="password-option">
+                        <input id="change-password" type="radio" name="ChangePassword" value="yes">
+                        <span>Change password</span>
+                    </label>
+                </fieldset>
+                <div id="password-fields" hidden>
+                    <label for="account-current-password">Current Password</label>
+                    <input id="account-current-password" type="password" autocomplete="current-password">
+
+                    <label for="account-new-password">New Password</label>
+                    <input id="account-new-password" type="password" autocomplete="new-password" minlength="8">
+
+                    <label for="account-confirm-password">Confirm New Password</label>
+                    <input id="account-confirm-password" type="password" autocomplete="new-password" minlength="8">
+                </div>
                 <button type="submit">Save changes</button>
             </form>
         </section>
+
     </main>
 </body>
 

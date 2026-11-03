@@ -53,5 +53,20 @@ profileForm?.addEventListener("submit", async (event) => {
         alert("Unable to connect to the server");
     }
 
+});
 
+const passwordFields = document.querySelector<HTMLDivElement>("#password-fields");
+
+const passwordOption = document.querySelectorAll<HTMLInputElement>("input[name='ChangePassword']");
+
+passwordOption.forEach(option => {
+    
+    option.addEventListener("change", () => {
+        if (!passwordFields) { return; }
+        if (option.value === "yes") {
+            passwordFields.hidden = false; // Show
+        } else {
+            passwordFields.hidden = true;  // Hide
+        }
+    });
 });
