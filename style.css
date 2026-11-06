@@ -769,6 +769,32 @@ form[id="signup-form"] button[type="submit"] {
     line-height: 1.9;
 }
 
+#product-price {
+    margin: 24px 0 20px;
+    color: #142d4e;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.product-add-to-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 12px;
+    background: #254567;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.product-add-to-cart:hover { background: #142d4e; }
+
 .product-explore {
     display: inline-flex;
     align-items: center;
@@ -776,20 +802,22 @@ form[id="signup-form"] button[type="submit"] {
     gap: 24px;
     box-sizing: border-box;
     min-height: 48px;
-    margin-top: 32px;
-    padding: 14px 22px;
+    margin: 8px 0 0 12px;
+    padding: 12px 16px;
+    border: 1px solid #d7e2ef;
     border-radius: 12px;
-    background: #254567;
-    color: #ffffff;
+    background: #fff;
+    color: #254567;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     transition: background-color 0.2s ease;
 }
 
-.product-explore:hover { background: #142d4e; }
+.product-explore:hover { background: #f1f5f9; }
 
-.product-page a:focus-visible {
+.product-page a:focus-visible,
+.product-add-to-cart:focus-visible {
     outline: 3px solid #2563eb;
     outline-offset: 5px;
 }
@@ -1026,3 +1054,64 @@ form[id="signup-form"] button[type="submit"] {
 
 
 
+#login-required {
+    box-sizing: border-box;
+    width: min(420px, calc(100vw - 32px));
+    padding: 32px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: #243247;
+    box-shadow: 0 24px 64px rgb(20 45 78 / 22%);
+}
+
+#login-required::backdrop {
+    background: rgb(15 23 42 / 50%);
+}
+
+#login-required p {
+    margin: 0 0 24px;
+    color: #142d4e;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+#login-required a,
+#login-required #close-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#login-required a {
+    border: 1px solid #254567;
+    background: #254567;
+    color: #fff;
+}
+
+#login-required a:hover { background: #142d4e; }
+
+#login-required #close-login {
+    float: none;
+    margin-left: 8px;
+    border: 1px solid #d7e2ef;
+    background: #fff;
+    color: #254567;
+}
+
+#login-required #close-login:hover { background: #f1f5f9; }
+
+#login-required :is(a, button):focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 3px;
+}

@@ -230,6 +230,12 @@ const loginModal = document.querySelector<HTMLDialogElement>("#login-modal");
 const closeModalBtn = document.querySelector<HTMLButtonElement>("#close-login");
 const btnClose = document.querySelector<HTMLButtonElement>("#close-profile");
 
+const pageParams = new URLSearchParams(window.location.search);
+
+if (pageParams.get("login") === "1") {
+  loginModal?.showModal();
+  window.history.replaceState(null, "", "/");
+}
 
 loginBtn?.addEventListener("click", async () => {
   try {
@@ -293,25 +299,23 @@ loadProfile();
 
 const LogoutBtn = document.querySelector<HTMLButtonElement>("#logout-btn");
 
-LogoutBtn?.addEventListener("click",async () =>{
-      try{
-        const response = await fetch("/api/logout",{
-          method: "POST"
-        });
+LogoutBtn?.addEventListener("click", async () => {
+  try {
+    const response = await fetch("/api/logout", {
+      method: "POST"
+    });
 
 
-      if(response.ok)
-      {
-        window.location.href = "/";
-      }
-      else{
-        alert("Log Out Unsuccessful!!!!");
-      }
+    if (response.ok) {
+      window.location.href = "/";
+    }
+    else {
+      alert("Log Out Unsuccessful!!!!");
+    }
 
-      }catch(error)
-      {
-        console.error("Failed to Logout:", error);
-      }
+  } catch (error) {
+    console.error("Failed to Logout:", error);
+  }
 });
 
 

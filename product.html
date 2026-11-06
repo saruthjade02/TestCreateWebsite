@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
     <script src="dir/product.js" defer></script>
     <title>Product Details</title>
 </head>
@@ -24,10 +25,18 @@
             <h1 id="product-title"></h1>
             <div class="product-divider" aria-hidden="true"></div>
             <p id="product-description"></p>
+            <p id="product-price"></p>
+            <button class="product-add-to-cart">🛒 Add to Cart</button>
             <a class="product-explore" href="/#hero">Go to Home Page</a>
         </div>
+
+        <dialog id="login-required">
+            <p>Please log in before adding items to your cart.</p>
+            <a href="/?login=1">Go to the login page</a>
+            <button id="close-login" type="button">Close</button>
+        </dialog>
     </main>
-    
+
 </body>
 
 </html>

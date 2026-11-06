@@ -22,24 +22,90 @@ async function loadAccount() {
 loadAccount();
 
 
-const profileForm = document.querySelector<HTMLFormElement>("#profile-form");
-profileForm?.addEventListener("submit", async (event) => {
+const passwordFields = document.querySelector<HTMLDivElement>("#password-fields");
+const passwordOption = document.querySelectorAll<HTMLInputElement>("input[name='ChangePassword']");
 
+
+passwordOption.forEach(option => {
+
+    option.addEventListener("change", () => {
+        if (!passwordFields) { return; }
+        if (option.value === "yes") {
+            passwordFields.hidden = false; // Show
+        } else {
+            passwordFields.hidden = true;  // Hide
+        }
+    });
+});
+
+
+const profileForm = document.querySelector<HTMLFormElement>("#profile-form");
+
+profileForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
     const AccName = document.querySelector<HTMLInputElement>("#account-name");
 
     if (!AccName) { return }
+
+    let accountData: {
+        name: string;
+        currentPassword?: string;
+        newPassword?: string;
+    } = { name: AccName.value }
+
+    if (passwordFields && !passwordFields.hidden) {
+        const currentPassword = document.querySelector<HTMLInputElement>(
+            "#account-current-password"
+        );
+        const newPassword = document.querySelector<HTMLInputElement>(
+            "#account-new-password"
+        );
+        const confirmPassword = document.querySelector<HTMLInputElement>(
+            "#account-confirm-password"
+        );
+
+        if (!currentPassword || !newPassword || !confirmPassword) {
+            alert("Password fields are missing");
+            return;
+        }
+
+        if (!currentPassword.value || !newPassword.value || !confirmPassword.value) {
+            alert("Please fill in all password fields");
+            return;
+        }
+        
+        if(newPassword.value.length < 8)
+        {
+            alert("New password must be at least 8 characters long");
+            return;
+        }
+
+        if(newPassword.value !== confirmPassword.value) {
+            alert("New passwords do not match");
+            return;
+        }
+
+        if (newPassword.value === currentPassword.value) {
+            alert("รหัสผ่านใหม่ต้องไม่เหมือนรหัสผ่านเดิม");
+            return;
+        }
+        
+        accountData = {
+            name: AccName.value,
+            currentPassword: currentPassword.value,
+            newPassword: newPassword.value
+        };
+    }
     try {
         const res = await fetch("/api/update-value", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                name: AccName.value
-            })
+            body: JSON.stringify(accountData)
         });
         const data = await res.json();
+
 
         if (!res.ok) {
             alert(data.message);
@@ -55,18 +121,3 @@ profileForm?.addEventListener("submit", async (event) => {
 
 });
 
-const passwordFields = document.querySelector<HTMLDivElement>("#password-fields");
-
-const passwordOption = document.querySelectorAll<HTMLInputElement>("input[name='ChangePassword']");
-
-passwordOption.forEach(option => {
-    
-    option.addEventListener("change", () => {
-        if (!passwordFields) { return; }
-        if (option.value === "yes") {
-            passwordFields.hidden = false; // Show
-        } else {
-            passwordFields.hidden = true;  // Hide
-        }
-    });
-});

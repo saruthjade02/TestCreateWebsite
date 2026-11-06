@@ -252,7 +252,7 @@ app.post("/api/login", async (req, res) => {
         console.error("Login error:", error);
 
         res.status(500).send({
-            message: "เกิดข้อผิดพลาดในการเข้าสู่ระบบ"
+            message: "An error occurred while logging in"
         });
     }
 });
@@ -286,9 +286,71 @@ app.post("/api/update-value", async (req, res) => {
             });
         }
         const data = req.body;
-        const result = await db.execute(
-            "UPDATE users SET name = ? WHERE id = ?",
-            [data.name, userId]);
+
+
+        if (typeof data.name !== "string" || !data.name.trim()) {
+            res.status(400).send({
+                message: "Please provide your name."
+            });
+            return;
+        }
+
+
+        if (data.currentPassword === undefined && data.newPassword === undefined) {
+            await db.execute(
+                "UPDATE users SET name = ? WHERE id = ?",
+                [data.name.trim(), userId]
+            );
+        }
+        else {
+
+            if (
+                typeof data.currentPassword !== "string" ||
+                typeof data.newPassword !== "string" ||
+                !data.currentPassword ||
+                data.newPassword.length < 8
+            ) {
+                res.status(400).send({
+                    message: "Please enter the correct password."
+                });
+                return;
+            }
+
+            const [users] = await db.execute<UserRow[]>(
+                "SELECT id, name, password_hash FROM users WHERE id = ?",
+                [userId]
+            );
+
+
+            const user = users[0];
+
+            if (!user) {
+                res.status(404).send({
+                    message: "Not Found User"
+                });
+                return;
+            }
+
+            const passwordMatches = await argon2.verify(
+                user.password_hash,
+                data.currentPassword
+            );
+
+            if (!passwordMatches) {
+                res.status(401).send({
+                    message:
+                        "The current password is incorrect."
+                });
+                return;
+            }
+
+            const newPasswordHash = await argon2.hash(data.newPassword);
+
+            await db.execute(
+                "UPDATE users SET name = ?, password_hash = ? WHERE id = ?",
+                [data.name.trim(), newPasswordHash, userId]
+            );
+        }
         res.status(200).send({
             message: "Update successful",
             name: data.name

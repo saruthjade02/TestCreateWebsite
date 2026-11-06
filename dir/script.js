@@ -197,6 +197,11 @@ const loginBtn = document.querySelector("#login-btn");
 const loginModal = document.querySelector("#login-modal");
 const closeModalBtn = document.querySelector("#close-login");
 const btnClose = document.querySelector("#close-profile");
+const pageParams = new URLSearchParams(window.location.search);
+if (pageParams.get("login") === "1") {
+    loginModal?.showModal();
+    window.history.replaceState(null, "", "/");
+}
 loginBtn?.addEventListener("click", async () => {
     try {
         const response = await fetch("/api/me");
