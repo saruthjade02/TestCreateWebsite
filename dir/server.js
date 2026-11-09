@@ -250,6 +250,41 @@ app.post("/api/update-value", async (req, res) => {
         });
     }
 });
+app.post("/api/cart", async (req, res) => {
+    const userId = req.session.userId;
+    if (userId === undefined) {
+        res.status(401).send({
+            message: "Please log in first"
+        });
+        return;
+    }
+    const productId = req.body?.productId;
+    if (!["quest", "oakley", "rayban"].includes(productId)) {
+        return res.status(400).json({
+            message: "Invalid product."
+        });
+    }
+    try {
+        await db.execute(`
+            CREATE TABLE IF NOT EXISTS cart (
+                user_id BIGINT UNSIGNED NOT NULL,
+                product_id VARCHAR(50) NOT NULL,
+                FOREIGN KEY (user_id) REFERENCES users(id)
+            )
+        `);
+        await db.execute("INSERT INTO cart (user_id, product_id) VALUES (?, ?)", [userId, productId]);
+        res.status(201).json({
+            message: "Added to cart."
+        });
+    }
+    catch (error) {
+        console.error("Error adding product to cart:", error);
+        res.status(500).send({
+            message: "Unable to add product to cart"
+        });
+        return;
+    }
+});
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT ?? 3306),

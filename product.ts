@@ -62,6 +62,20 @@ if (ProductTitle && ProductImage && ProductDes && ProductPrice && ButtonAddToCar
                 return;
             }
 
+            if (response.ok) {
+                const cartResponse = await fetch("/api/cart", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ productId: productID })
+                });
+
+                if (cartResponse.ok) {
+                    alert("Added to cart!");
+                    window.location.href = "/";
+                } else {
+                    alert("Unable to add product to cart.");
+                }
+            }
         }
         catch (error) {
             console.error("Error checking login status:", error);
