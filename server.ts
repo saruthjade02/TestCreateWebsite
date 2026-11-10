@@ -39,7 +39,7 @@ const file: Record<string, [string, string]> = {
     "/dir/login.js": ["dir/login.js", "text/javascript; charset=utf-8"],
     "/dir/account.js": ["dir/account.js", "text/javascript; charset=utf-8"],
     "/dir/cart.js": ["dir/cart.js", "text/javascript; charset=utf-8"],
-    
+
     "/anonymous.png": ["anonymous.png", "image/png"],
 
     "/META.png": ["META.png", "image/png"],
@@ -62,7 +62,9 @@ const file: Record<string, [string, string]> = {
 };
 
 
-loadEnvFile(".env");
+if (process.env.RENDER !== "true") {
+    loadEnvFile(".env");
+}
 const app = express();
 
 app.use(express.json());
@@ -405,12 +407,12 @@ app.post("/api/cart", async (req, res) => {
     const productId = req.body?.productId;
 
     if (!["quest", "oakley", "rayban"].includes(productId)) {
-    return res.status(400).json({
-        message: "Invalid product."
-    });
-}
+        return res.status(400).json({
+            message: "Invalid product."
+        });
+    }
     try {
-    
+
         await db.execute(`
             CREATE TABLE IF NOT EXISTS cart (
                 user_id BIGINT UNSIGNED NOT NULL,
@@ -439,18 +441,19 @@ app.post("/api/cart", async (req, res) => {
 });
 
 
-
-
-
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT ?? 3306),
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME
+    database: process.env.DB_NAME,
+    ssl: process.env.DB_SSL === "true"
+        ? { minVersion: "TLSv1.2" }
+        : undefined
 });
 
+const port = Number(process.env.PORT ?? 3000);
 
-app.listen(3000, "localhost", () => {
-    console.log("Server is running on http://localhost:3000");
+app.listen(port, "0.0.0.0", () => {
+    console.log(`Server is running on port ${port}`);
 });

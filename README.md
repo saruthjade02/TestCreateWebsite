@@ -8,7 +8,7 @@ A full-stack project for exploring Meta products and apps, built with TypeScript
 - View the META stock chart and choose a time range.
 - Sign up, log in, and log out.
 - View and update your profile.
-- Add products to your cart and view the total.
+- Add products to your cart after logging in and view the total.
 - Use the site on desktop or mobile.
 
 Stock data comes from Twelve Data.
@@ -40,6 +40,10 @@ Stock data comes from Twelve Data.
 ![Profile](docs/screenshots/Profile.png)
 
 ### Cart
+
+If you are not logged in, adding a product opens a prompt to log in.
+
+![Login prompt before adding to cart](docs/screenshots/Log%20In%20First.png)
 
 ![My cart](docs/screenshots/My%20Cart.png)
 
