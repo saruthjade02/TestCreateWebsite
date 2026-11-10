@@ -40,13 +40,13 @@ textarea {
     transition: transform 0.2s ease;
     font-size: large;
     display: inline-block;
-  
+
 }
 
 .nav-btn.hovered {
     transform: scale(1.1);
     background-color: #142d4e;
-} 
+}
 
 .content__title {
     font-family: "IBM Plex Sans Thai", sans-serif;
@@ -297,6 +297,7 @@ section[id] {
 }
 
 @media (max-width: 700px) {
+
     .section-heading,
     .section-stock,
     .section-prod {
@@ -455,17 +456,17 @@ button[data-range][aria-pressed="true"] {
     white-space: pre;
     z-index: 2000;
 }
- 
+
 .Production {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     padding: 0 40px;
     font-size: 14px;
-    font-family: "IBM Plex Sans Thai", sans-serif;    
+    font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
-.Production a{
+.Production a {
     display: block;
     aspect-ratio: 16 / 9;
     overflow: hidden;
@@ -479,6 +480,7 @@ button[data-range][aria-pressed="true"] {
     height: 100%;
     transition: transform 0.2s ease;
 }
+
 .Production a img:hover {
     transform: scale(1.03);
 }
@@ -511,18 +513,19 @@ button[data-range][aria-pressed="true"] {
     gap: 12px;
 }
 
-#login-modal input,#login-modal button {
+#login-modal input,
+#login-modal button {
     padding: 10px;
     font-family: "IBM Plex Sans Thai", sans-serif;
 }
 
 
 #login-modal input {
-    width: auto;        
-    height: 25px;            
-    padding: 8px 12px;      
-    border: 1px solid #ccc;  
-    border-radius: 8px;      
+    width: auto;
+    height: 25px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 #login-modal button[type="submit"] {
@@ -535,21 +538,26 @@ button[data-range][aria-pressed="true"] {
     cursor: pointer;
     margin: 0 auto;
 }
+
 /* display บอกว่ากล่องจัดวางแบบไหน ส่วน position บอกว่ากล่องอยู่ตรงไหนครับ */
-#close-login,#close-profile {
+#close-login,
+#close-profile {
     float: right;
     border: none;
     background: transparent;
     cursor: pointer;
 }
-.menu-title,.profile-title{
+
+.menu-title,
+.profile-title {
     font-family: "IBM Plex Sans Thai", sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #243247;
 }
 
-.menu-header,#profile-header {
+.menu-header,
+#profile-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -557,11 +565,18 @@ button[data-range][aria-pressed="true"] {
     border-bottom: 1px solid #e2e8f0;
 }
 
-#menu-dialog,#profile-dialog {
+.cart-divider{
+    border: 0;
+    border-top: 1px solid #dce5f0;
+    margin: 16px 0 24px;
+}
+
+#menu-dialog,
+#profile-dialog {
     background: white;
     color: #243247;
     position: fixed;
-    inset: 0 0 0 auto; 
+    inset: 0 0 0 auto;
     margin: 0;
     width: min(280px, 85vw);
     height: 100dvh;
@@ -570,11 +585,13 @@ button[data-range][aria-pressed="true"] {
     border-radius: 12px 0 0 12px;
 }
 
-#menu-dialog::backdrop,#profile-dialog::backdrop  {
+#menu-dialog::backdrop,
+#profile-dialog::backdrop {
     background: rgb(0 0 0 / 45%);
 }
 
-#menu-dialog nav,#profile-list {
+#menu-dialog nav,
+#profile-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -587,14 +604,17 @@ button[data-range][aria-pressed="true"] {
     background-color: transparent;
     cursor: pointer;
 }
-.menu-list,#profile-list {
+
+.menu-list,
+#profile-list {
     font-family: "IBM Plex Sans Thai", sans-serif;
     font-size: large;
     padding: 0;
     margin: 30px 0 0 0;
 }
 
-.menu-list a,#profile-list a {
+.menu-list a,
+#profile-list a {
     text-decoration: none;
     color: #243247;
     padding: 8px 12px;
@@ -603,7 +623,8 @@ button[data-range][aria-pressed="true"] {
     cursor: pointer;
 }
 
-.menu-list a:hover,#profile-list a:hover {
+.menu-list a:hover,
+#profile-list a:hover {
     background-color: #e8eef7;
     color: #254567;
 }
@@ -624,14 +645,17 @@ button[data-range][aria-pressed="true"] {
     color: #243247;
     box-shadow: 0 8px 24px rgb(20 45 78 / 8%);
 }
+
 #signup-form {
     display: flex;
     flex-direction: column;
     gap: 7px;
-    
+
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     width: 80%;
     padding: 8px;
     border: 1px solid #cbd9eb;
@@ -644,7 +668,7 @@ form[id="signup-form"] button[type="submit"] {
     height: 40px;
     border: none;
     border-radius: 8px;
-    
+
     background: #254567;
     color: white;
     cursor: pointer;
@@ -655,6 +679,130 @@ form[id="signup-form"] button[type="submit"] {
 .product-page {
     background: #f3f6fb;
 }
+
+.cart-page {
+    background: #f3f6fb;
+    color: #142d4e;
+}
+
+.cart-header {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: calc(100% - 48px);
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 28px 0;
+    background: transparent;
+}
+
+.cart-brand {
+    color: #142d4e;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.cart-brand span {
+    margin-left: 10px;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.cart-back {
+    color: #475569;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.cart-back:hover {
+    color: #2563eb;
+}
+
+.cart-content {
+    box-sizing: border-box;
+    width: calc(100% - 48px);
+    max-width: 960px;
+    margin: 50px auto 80px;
+}
+
+.cart-content h1 {
+    margin: 0;
+    color: #142d4e;
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0.04em;
+}
+
+.cart-intro {
+    margin: 10px 0 32px;
+    color: #64748b;
+}
+
+#cart-items {
+
+    display: grid;
+    gap: 16px;
+}
+
+.cart-item-image-visual {
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 140px;
+    height: 120px;
+    border-radius: 14px;
+    background: #f1f5f9;
+}
+
+
+.cart-item {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 140px minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;    
+    align-items: center;
+    gap: 12px 24px;
+    padding: 20px;
+    border: 1px solid #e0e8f2;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.cart-item-image {
+    grid-row: span 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+   
+}
+
+.cart-item-name {
+    grid-column: 2;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.cart-item-price {
+    grid-column: 3;
+    grid-row: span 2;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.cart-item-quantity {
+
+    color: #64748b;
+    font-size: 14px;
+}
+
 
 .product-header {
     box-sizing: border-box;
@@ -694,7 +842,9 @@ form[id="signup-form"] button[type="submit"] {
     text-decoration: none;
 }
 
-.product-back:hover { color: #2563eb; }
+.product-back:hover {
+    color: #2563eb;
+}
 
 .product-card {
     box-sizing: border-box;
@@ -729,11 +879,21 @@ form[id="signup-form"] button[type="submit"] {
     mix-blend-mode: multiply;
 }
 
-#product-image[hidden] { display: none; }
+#product-image[hidden] {
+    display: none;
+}
 
 .product-info {
     min-width: 0;
     padding: 16px 0;
+}
+
+#cart-total {
+    padding-right:20px;
+    color: #142d4e;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
 }
 
 .product-eyebrow {
@@ -793,7 +953,9 @@ form[id="signup-form"] button[type="submit"] {
     transition: background-color 0.2s ease;
 }
 
-.product-add-to-cart:hover { background: #142d4e; }
+.product-add-to-cart:hover {
+    background: #142d4e;
+}
 
 .product-explore {
     display: inline-flex;
@@ -814,7 +976,9 @@ form[id="signup-form"] button[type="submit"] {
     transition: background-color 0.2s ease;
 }
 
-.product-explore:hover { background: #f1f5f9; }
+.product-explore:hover {
+    background: #f1f5f9;
+}
 
 .product-page a:focus-visible,
 .product-add-to-cart:focus-visible {
@@ -840,13 +1004,13 @@ form[id="signup-form"] button[type="submit"] {
     grid-template-columns: 1fr 1fr;
 }
 
-.personal-info{
-   
+.personal-info {
+
     display: flex;
     align-items: center;
     gap: 6px;
     text-decoration: none;
-    color:rgb(60, 57, 57);
+    color: rgb(60, 57, 57);
 }
 
 .personal-info img {
@@ -868,7 +1032,7 @@ form[id="signup-form"] button[type="submit"] {
     border-radius: 100%;
 }
 
-#logout-btn{
+#logout-btn {
     font-family: "IBM Plex Sans Thai", sans-serif;
     font-size: large;
     background: #142d4e;
@@ -878,18 +1042,17 @@ form[id="signup-form"] button[type="submit"] {
     position: absolute;
     bottom: 45px;
     left: 43%
-
 }
 
 
-#Account-Page{
+#Account-Page {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     background: #f3f6fb;
 }
 
-.account-header{
+.account-header {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -912,7 +1075,7 @@ form[id="signup-form"] button[type="submit"] {
     color: #2563eb;
 }
 
-#account-container{
+#account-container {
     box-sizing: border-box;
     width: min(480px, calc(100% - 32px));
     margin: 100px 0 auto;
@@ -948,7 +1111,7 @@ form[id="signup-form"] button[type="submit"] {
     font-weight: 500;
 }
 
-#profile-form{
+#profile-form {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -1099,7 +1262,9 @@ form[id="signup-form"] button[type="submit"] {
     color: #fff;
 }
 
-#login-required a:hover { background: #142d4e; }
+#login-required a:hover {
+    background: #142d4e;
+}
 
 #login-required #close-login {
     float: none;
@@ -1109,7 +1274,9 @@ form[id="signup-form"] button[type="submit"] {
     color: #254567;
 }
 
-#login-required #close-login:hover { background: #f1f5f9; }
+#login-required #close-login:hover {
+    background: #f1f5f9;
+}
 
 #login-required :is(a, button):focus-visible {
     outline: 3px solid #2563eb;

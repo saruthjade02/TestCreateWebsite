@@ -7,9 +7,11 @@ A full-stack project for exploring Meta products and apps, built with TypeScript
 - Browse Meta apps and products, with a details page for each product.
 - View the META stock chart and choose a time range.
 - Sign up, log in, and log out.
+- View and update your profile.
+- Add products to your cart and view the total.
 - Use the site on desktop or mobile.
 
-The My Account page is not available yet. Stock data comes from Twelve Data.
+Stock data comes from Twelve Data.
 
 ## Screenshots
 
@@ -25,17 +27,21 @@ The My Account page is not available yet. Stock data comes from Twelve Data.
 
 ![META stock chart](docs/screenshots/stock.png)
 
-### Products
+### Product details
 
-![Product list](docs/screenshots/products.png)
-
-![Product details](docs/screenshots/product.png)
+![Product details](docs/screenshots/EachProducts.png)
 
 ### Account
 
 ![Log in](docs/screenshots/login.png)
 
 ![Sign up](docs/screenshots/signup.png)
+
+![Profile](docs/screenshots/Profile.png)
+
+### Cart
+
+![My cart](docs/screenshots/My%20Cart.png)
 
 ## Framework and libraries
 

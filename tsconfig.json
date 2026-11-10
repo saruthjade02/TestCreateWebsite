@@ -20,7 +20,8 @@
     "signup.ts",
     "product.ts",
     "login.ts",
-    "account.ts"
+    "account.ts",
+    "cart.ts"
   ]
 }
 

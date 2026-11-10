@@ -10,12 +10,14 @@ const file = {
     "/signup.html": ["signup.html", "text/html; charset=utf-8"],
     "/product.html": ["product.html", "text/html; charset=utf-8"],
     "/account.html": ["account.html", "text/html; charset=utf-8"],
+    "/cart.html": ["cart.html", "text/html; charset=utf-8"],
     "/style.css": ["style.css", "text/css; charset=utf-8"],
     "/dir/script.js": ["dir/script.js", "text/javascript; charset=utf-8"],
     "/dir/signup.js": ["dir/signup.js", "text/javascript; charset=utf-8"],
     "/dir/product.js": ["dir/product.js", "text/javascript; charset=utf-8"],
     "/dir/login.js": ["dir/login.js", "text/javascript; charset=utf-8"],
     "/dir/account.js": ["dir/account.js", "text/javascript; charset=utf-8"],
+    "/dir/cart.js": ["dir/cart.js", "text/javascript; charset=utf-8"],
     "/anonymous.png": ["anonymous.png", "image/png"],
     "/META.png": ["META.png", "image/png"],
     "/mark1.jpg": ["mark1.jpg", "image/jpeg"],
@@ -49,6 +51,25 @@ app.use(session({
         maxAge: 24 * 60 * 60 * 1000
     }
 }));
+app.get("/api/cart", async (req, res) => {
+    const userId = req.session.userId;
+    if (userId === undefined) {
+        res.status(401).send({
+            message: "Please log in first"
+        });
+        return;
+    }
+    try {
+        const [cartItems] = await db.execute("SELECT product_id , COUNT(*) as quantity FROM cart WHERE user_id = ? GROUP BY product_id", [userId]);
+        res.status(200).json(cartItems);
+    }
+    catch (error) {
+        console.error("Error fetching cart items:", error);
+        res.status(500).send({
+            message: "Unable to fetch cart items"
+        });
+    }
+});
 app.get("/api/me", async (req, res) => {
     const userId = req.session.userId;
     if (userId === undefined) {
