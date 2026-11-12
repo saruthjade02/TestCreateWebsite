@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      RENDER: "true"
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USER: "app_user"
+      DB_PASSWORD: "1234jade"
+      DB_NAME: "meta_app"
+      DB_SSL: "false"
+      SESSION_SECRET: "my-local-secret-for-docker-practice"
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_ROOT_PASSWORD: "jade1234"
+      MYSQL_DATABASE: "meta_app"
+      MYSQL_USER: "app_user"
+      MYSQL_PASSWORD: "1234jade"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  mysql_data:
